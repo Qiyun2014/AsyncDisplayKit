@@ -25,14 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, strong) NSIndexPath *indexPath;
 
 /**
- * The node created by `nodeCreationOperation`. This will be nil until the operation is finished.
+ * Begins measurement of the cell node, if it hasn't already begun.
  */
-@property (atomic, readonly, nullable, strong) ASCellNode *node;
+- (void)beginMeasuringNode;
 
 /**
- * An operation to allocate and measure the node.
+ * The cell node created by this context. Begins and waits for measurement if needed.
  */
-@property (nonatomic, readonly, strong) NSBlockOperation *nodeCreationOperation;
+@property (atomic, readonly, strong) ASCellNode *node;
 
 + (NSArray<NSIndexPath *> *)indexPathsFromContexts:(NSArray<ASIndexedNodeContext *> *)contexts;
 
